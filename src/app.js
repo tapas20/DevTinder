@@ -1,17 +1,17 @@
 const express = require("express");
+const Auth = require("./middlewares/auth");
 
 const app = express();
 
-app.use("/", (req, res) => {
-  res.send("Namaste from the dashboard....");
+// Middleware
+app.use("/admin", Auth);
+
+app.get("/admin/AllData", (req, res) => {
+  res.send("All Data");
 });
 
-app.use("/hello", (req, res) => {
-  res.send("Hello hello hello....");
-});
-
-app.use("/test", (req, res) => {
-  res.send("Hello from the server side....");
+app.get("/admin/DeleteData", (req, res) => {
+  res.send("All Data Deleted");
 });
 
 app.listen(3000, () => {
