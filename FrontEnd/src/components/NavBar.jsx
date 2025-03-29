@@ -1,10 +1,31 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { BASE_URL } from "../utils/constants";
+import { removeUser } from "../utils/userSlice";
 
 const NavBar = () => {
   const user = useSelector((state) => state.user);
-  console.log(user);
+  const dispatch = useDispatch();
+
+  const handleLogout = async () => {
+    try {
+      const res = await axios.post(
+        BASE_URL + "/logout",
+        {},
+        { withCredentials: true }
+      );
+      dispatch(removeUser());
+      if (res.status === 200) {
+        window.location.href = "/login";
+      } else {
+        console.error("Logout failed:", res.data);
+      }
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  };
 
   return (
     <div className="navbar bg-base-300 shadow-sm">
@@ -14,11 +35,6 @@ const NavBar = () => {
         </NavLink>
       </div>
       <div className="flex gap-2">
-        {!user && (
-          <NavLink to="/login" className="btn btn-ghost">
-            Login
-          </NavLink>
-        )}
         {user && (
           <div className="dropdown dropdown-end mx-5 flex">
             <p className="mx-4 mt-2">Welcome, {user.firstName}</p>
@@ -42,7 +58,7 @@ const NavBar = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/logout">Logout</NavLink>
+                <a onClick={handleLogout}>Logout</a>
               </li>
             </ul>
           </div>
