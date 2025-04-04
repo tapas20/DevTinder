@@ -17,7 +17,7 @@ const UserCard = ({ user }) => {
           <button className="cursor-pointer text-black hover:bg-amber-50 h-9 w-32 bg-red-500 badge">
             Ignored
           </button>
-          <button className="cursor-pointer text-black hover:bg-amber-50 h-9 w-32 bg-green-500 badge">
+          <button className="cursor-pointer text-black hover:bg-amber-50 h-9 w-32 bg-blue-500 badge">
             Connect
           </button>
         </div>
