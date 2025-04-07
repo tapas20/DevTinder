@@ -25,6 +25,10 @@ const FeedPage = () => {
     getFeed();
   }, []);
 
+  if(!feed) return;
+
+  if(feed.length <= 0) return <h1 className="flex justify-center my-10">No more User's founds!</h1>
+
   return (
     feed && (
       <div className="flex flex-col items-center justify-center p-4 sm:p-6 lg:p-12 bg-gradient-to-br from-indigo-50 to-purple-50 min-h-screen">

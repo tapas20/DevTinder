@@ -109,7 +109,7 @@ const NavBar = () => {
                       onMouseEnter={() => setIsDropdownOpen(true)}
                     >
                       <img
-                        className="h-8 w-8 rounded-full object-cover border-2 border-indigo-200 hover:border-indigo-400 transition-colors"
+                        className="h-8 w-8 cursor-pointer rounded-full object-cover border-2 border-indigo-200 hover:border-indigo-400 transition-colors"
                         src={user.photoUrl}
                         alt="User profile"
                       />
@@ -145,7 +145,7 @@ const NavBar = () => {
                         </div>
                         <button
                           onClick={handleLogout}
-                          className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-700 transition-colors"
+                          className="block cursor-pointer w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-700 transition-colors"
                         >
                           Sign out
                         </button>
