@@ -26,6 +26,5 @@ DevTinder is a developer matchmaking app built with the MERN stack (MongoDB, Exp
 **Other Tools**  
 - JWT for authentication  
 - Socket.IO for real-time chat  
-- Multer/Cloudinary for profile image uploads  
 
 
